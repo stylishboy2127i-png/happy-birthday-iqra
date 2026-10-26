@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Iqra ❤️ - From Taimoor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Poppins:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- 🔥 PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-heart">💖</div>
+        <p class="preloader-text">Loading our love story...</p>
+        <div class="preloader-bar"><div class="preloader-fill" id="preloaderFill"></div></div>
+    </div>
+
+    <!-- 📊 SCROLL PROGRESS BAR -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ❤️ FLOATING HEARTS BG -->
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <!-- 🎈 FLOATING BALLOONS BG -->
+    <div class="balloons-bg" id="balloonsBg"></div>
+
+    <!-- 🎵 MUSIC BAR -->
+    <div class="music-player" id="musicPlayer">
+        <button class="music-toggle" id="musicToggle">🔇</button>
+        <div class="music-info">
+            <span class="music-note">🎵</span>
+            <div class="music-marquee"><span id="songName">Select a song below 🎶</span></div>
+        </div>
+        <div class="music-progress-mini"><div class="music-progress-fill" id="musicProgressFill"></div></div>
+    </div>
+
+    <!-- 🔐 SECTION 0: LOCK SCREEN -->
+    <section class="lock-screen active" id="lockScreen">
+        <div class="lock-particles" id="lockParticles"></div>
+        <div class="lock-container">
+            <div class="lock-icon-wrap">
+                <div class="lock-icon">🔐</div>
+                <div class="lock-heart">💕</div>
+            </div>
+            <h1 class="lock-title">Access Our World</h1>
+            <p class="lock-subtitle">A special place, just for you ❤️</p>
+            
+            <div class="lock-inputs">
+                <div class="input-group">
+                    <span class="input-icon">👸</span>
+                    <input type="text" value="Mri Jan Iqra" readonly>
+                </div>
+                <div class="input-group">
+                    <span class="input-icon">🔑</span>
+                    <input type="password" id="passwordInput" placeholder="Enter secret password...">
+                    <button class="eye-btn" id="togglePassword">👁️</button>
+                </div>
+            </div>
+            
+            <p class="hint-text" id="hintText"></p>
+            <button class="btn-unlock" id="unlockBtn">
+                <span>Unlock Surprise</span> <span class="btn-heart">💖</span>
+            </button>
+            
+            <div class="lock-footer">
+                <p>❤️ Made with Love by <strong>Taimoor</strong> ❤️</p>
+                <p class="lock-hint">💡 Hint: Her name in small letters</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎂 SECTION 1: HAPPY BIRTHDAY HERO -->
+    <section class="hero-section" id="heroSection">
+        <canvas class="particles-canvas" id="particlesCanvas"></canvas>
+        <div class="hero-sparkles" id="heroSparkles"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">✨ A Special Day For A Special Soul ✨</div>
+            
+            <div class="hero-title-wrap">
+                <h1 class="hero-happy-birthday">Happy Birthday,</h1>
+                <div class="hero-name-row">
+                    <h1 class="hero-name">Mri Jan Iqra</h1>
+                    <span class="hero-big-heart">💗</span>
+                </div>
+            </div>
+
+            <!-- 🎂 Beautiful Birthday Cake -->
+            <div class="hero-cake-wrap">
+                <div class="hero-cake-glow"></div>
+                <div class="cake-bubbles" id="cakeBubbles"></div>
+                <div class="hero-cake" id="heroCake">
+                    <div class="candle-holder">
+                        <div class="candle-stripes">
+                            <div class="hero-flame"></div>
+                            <div class="hero-flame-glow"></div>
+                        </div>
+                    </div>
+                    <div class="hc-tier hc-t3">
+                        <div class="hc-icing"></div>
+                        <div class="hc-drips"></div>
+                        <div class="hc-dots"></div>
+                    </div>
+                    <div class="hc-tier hc-t2">
+                        <div class="hc-icing"></div>
+                        <div class="hc-drips"></div>
+                        <div class="hc-dots"></div>
+                    </div>
+                    <div class="hc-tier hc-t1">
+                        <div class="hc-icing"></div>
+                        <div class="hc-drips"></div>
+                        <div class="hc-dots"></div>
+                    </div>
+                    <div class="hc-plate"></div>
+                </div>
+                <button class="btn-blow-hero" id="blowHeroBtn">🌬️ Blow the Candles!</button>
+                <p class="blow-hint-hero" id="blowHeroHint">Make a wish first! 🌟</p>
+            </div>
+
+            <div class="hero-date" id="heroDate">📅 Your Special Day 📅</div>
+            
+            <p class="hero-message">
+                Today is all about you and all the happiness<br>
+                you bring into my life every single day.<br>
+                <span class="hero-highlight">You deserve the world, and I'll spend my life giving it to you.</span>
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <span class="stat-number" id="daysCounter">0</span>
+                    <span class="stat-label">Days of Love</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Reasons I Love You</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">1</span>
+                    <span class="stat-label">Forever & Always</span>
+                </div>
+            </div>
+
+            <button class="btn-hero" id="startJourneyBtn">
+                <span>Watch Our Video</span> <span class="btn-arrow">🎬</span>
+            </button>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"><div class="wheel"></div></div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- 🎬 SECTION 1.5: SPECIAL VIDEO INTRO (Auto Play) -->
+    <section class="video-intro-section" id="videoIntroSection">
+        <div class="vi-hearts" id="viHearts"></div>
+        
+        <div class="video-intro-content">
+            <div class="vi-badge">🎬 A Little Something For You 🎬</div>
+            <h2 class="vi-title">Our Special Video</h2>
+            <p class="vi-subtitle">Press play and relive our beautiful moments</p>
+
+            <div class="vi-frame-wrap">
+                <div class="vi-frame-glow"></div>
+                <div class="vi-frame">
+                    <!-- Curtain reveal animation -->
+                    <div class="vi-curtain left"></div>
+                    <div class="vi-curtain right"></div>
+                    
+                    <video id="introVideo" playsinline>
+                        <source src="/images/WhatsApp Video 2026-10-26 at 9.01.34 PM.mp4" type="video/mp4">
+                    </video>
+
+                    <div class="vi-overlay" id="viOverlay">
+                        <button class="vi-play-big" id="viPlayBig">
+                            <span class="vi-play-tri">▶</span>
+                        </button>
+                        <p class="vi-loading" id="viLoading">Video loading...</p>
+                    </div>
+
+                    <!-- Corner decorations -->
+                    <div class="vi-corner tl">💕</div>
+                    <div class="vi-corner tr">💕</div>
+                    <div class="vi-corner bl">💕</div>
+                    <div class="vi-corner br">💕</div>
+                </div>
+
+                <div class="vi-controls">
+                    <button class="vi-ctrl-btn" id="viPlayPause">⏸</button>
+                    <span class="vi-time" id="viTime">00:00 / 00:00</span>
+                    <div class="vi-progress" id="viProgress">
+                        <div class="vi-progress-fill" id="viProgressFill"></div>
+                    </div>
+                    <button class="vi-ctrl-btn" id="viMute">🔊</button>
+                    <button class="vi-ctrl-btn" id="viReplay">↻</button>
+                    <button class="vi-ctrl-btn" id="viFull">⛶</button>
+                </div>
+            </div>
+
+            <div class="vi-caption">
+                <span class="vi-caption-heart">💗</span>
+                <span>Every frame of this video is a memory I treasure forever</span>
+                <span class="vi-caption-heart">💗</span>
+            </div>
+
+            <button class="btn-section" id="videoIntroContinueBtn" style="margin-top:35px">Continue Our Story 💖</button>
+        </div>
+    </section>
+
+    <!-- 💖 SECTION 2: WHY I LOVE YOU -->
+    <section class="reasons-section" id="reasonsSection">
+        <div class="section-header">
+            <span class="section-emoji">💖</span>
+            <h2 class="section-title">Why I Love You</h2>
+            <p class="section-subtitle">Reasons you are my everything</p>
+            <div class="title-divider">💕</div>
+        </div>
+        
+        <div class="reasons-grid">
+            <div class="reason-card" style="--delay: 0.1s">
+                <div class="reason-icon">😊</div>
+                <h3>Your Smile</h3>
+                <p>Your smile lights up my darkest days and makes everything worth it.</p>
+            </div>
+            <div class="reason-card" style="--delay: 0.2s">
+                <div class="reason-icon">🤗</div>
+                <h3>Your Hugs</h3>
+                <p>Nothing in this world feels safer than being in your arms.</p>
+            </div>
+            <div class="reason-card" style="--delay: 0.3s">
+                <div class="reason-icon">😂</div>
+                <h3>Your Laughter</h3>
+                <p>Your laugh is my favorite sound in the entire universe.</p>
+            </div>
+            <div class="reason-card" style="--delay: 0.4s">
+                <div class="reason-icon">👀</div>
+                <h3>Your Eyes</h3>
+                <p>I could get lost in your eyes forever and never want to come back.</p>
+            </div>
+            <div class="reason-card" style="--delay: 0.5s">
+                <div class="reason-icon">💝</div>
+                <h3>Your Heart</h3>
+                <p>The kindest, purest heart I have ever known in my life.</p>
+            </div>
+            <div class="reason-card" style="--delay: 0.6s">
+                <div class="reason-icon">🌟</div>
+                <h3>Your Everything</h3>
+                <p>Every little thing about you makes my heart skip a beat.</p>
+            </div>
+        </div>
+
+        <div class="compliment-box">
+            <p class="compliment-text" id="complimentText">Click for a surprise compliment! 💕</p>
+            <button class="btn-compliment" id="complimentBtn">💝 Tell Me Something Sweet</button>
+        </div>
+
+        <button class="btn-section" id="reasonsContinueBtn" style="margin-top:40px">Our Story ⏳</button>
+    </section>
+
+    <!-- 📸 SECTION 3: PRECIOUS MEMORIES -->
+    <section class="memories-section" id="memoriesSection">
+        <div class="section-header">
+            <span class="section-emoji">📸</span>
+            <h2 class="section-title">Our Precious Memories</h2>
+            <p class="section-subtitle">Moments that mean everything to me</p>
+            <div class="title-divider">💕</div>
+        </div>
+
+        <div class="gallery-main">
+            <div class="polaroid-frame" style="--rot: -4deg">
+                <div class="polaroid-tape"></div>
+                <div class="photo-box">
+                    <img src="/images/Picsart_24-03-17_05-52-06-808.jpg" alt="Memory 1" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="photo-placeholder" style="display:none">📸<span>Add memory1.jpg</span></div>
+                </div>
+                <p class="polaroid-caption">Our First Smile</p>
+            </div>
+            <div class="polaroid-frame" style="--rot: 2deg">
+                <div class="polaroid-tape tape-pink"></div>
+                <div class="photo-box">
+                    <img src="/images/WhatsApp Image 2026-10-26 at 8.27.09 PM.jpeg" alt="Memory 2" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="photo-placeholder" style="display:none">📸<span>Add memory2.jpg</span></div>
+                </div>
+                <p class="polaroid-caption">Favorite Moment</p>
+            </div>
+            <div class="polaroid-frame" style="--rot: -2deg">
+                <div class="polaroid-tape tape-gold"></div>
+                <div class="photo-box">
+                    <img src="/images/IMG-20240413-WA0134.jpg" alt="Memory 3" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="photo-placeholder" style="display:none">📸<span>Add memory3.jpg</span></div>
+                </div>
+                <p class="polaroid-caption">Together Forever</p>
+            </div>
+            <div class="polaroid-frame" style="--rot: 4deg">
+                <div class="polaroid-tape"></div>
+                <div class="photo-box">
+                    <img src="/images/WhatsApp Image 2026-10-26 at 8.27.51 PM (1).jpeg" alt="Memory 4" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <div class="photo-placeholder" style="display:none">📸<span>Add memory4.jpg</span></div>
+                </div>
+                <p class="polaroid-caption">My Happy Place</p>
+            </div>
+        </div>
+
+        <!-- Extra photo slots -->
+        <div class="gallery-extra">
+            <div class="gallery-tile">
+                <img src="/images/WhatsApp Image 2026-10-26 at 8.27.50 PM (2).jpeg" alt="Memory 5" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder-tile" style="display:none">💕</div>
+            </div>
+            <div class="gallery-tile">
+                <img src="/images/WhatsApp Image 2026-10-26 at 8.27.08 PM.jpeg" alt="Memory 6" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder-tile" style="display:none">💖</div>
+            </div>
+            <div class="gallery-tile">
+                <img src="/images/WhatsApp Image 2026-10-26 at 8.27.38 PM.jpeg" alt="Memory 7" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder-tile" style="display:none">💗</div>
+            </div>
+        </div>
+
+        <button class="btn-section" id="memoriesContinueBtn">Play My Movie 🎬</button>
+    </section>
+
+    <!-- ⏳ SECTION 4: OUR TIMELINE -->
+    <section class="timeline-section" id="timelineSection">
+        <div class="section-header">
+            <span class="section-emoji">⏳</span>
+            <h2 class="section-title">Our Love Story</h2>
+            <p class="section-subtitle">Every moment with you is a treasure</p>
+            <div class="title-divider">💕</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-icon">💫</div>
+                    <h3>The Beginning</h3>
+                    <p>The day we first met, my world changed forever. I knew something magical was about to begin.</p>
+                    <span class="timeline-date">Where it all started</span>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-icon">💬</div>
+                    <h3>First Conversation</h3>
+                    <p>Those messages that lasted all night... I replay them in my mind even today.</p>
+                    <span class="timeline-date">The spark ignited</span>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🥰</div>
+                    <h3>Becoming Us</h3>
+                    <p>The moment I knew you were mine and I was yours - the best day of my life.</p>
+                    <span class="timeline-date">Forever began</span>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-icon">❤️</div>
+                    <h3>Falling Deeper</h3>
+                    <p>Every single day I fall more in love with you than the day before.</p>
+                    <span class="timeline-date">And still counting...</span>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-icon">🎂</div>
+                    <h3>Today - Your Birthday</h3>
+                    <p>Celebrating the day the world received its most beautiful gift - YOU, my love.</p>
+                    <span class="timeline-date">Happy Birthday Iqra!</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn-section" id="timelineContinueBtn" style="margin-top:40px">Our Memories 📸</button>
+    </section>
+
+    <!-- 🎬 SECTION 5: SPECIAL VIDEO -->
+    <section class="video-section" id="videoSection">
+        <div class="section-header">
+            <span class="section-emoji">🎬</span>
+            <h2 class="section-title">Our Special Video</h2>
+            <p class="section-subtitle">A little film of our love</p>
+            <div class="title-divider">💕</div>
+        </div>
+
+        <div class="video-player-wrap">
+            <div class="video-glow"></div>
+            <div class="video-frame">
+                <video id="loveVideo">
+                    <source src="/images/lv_7420284588091591991_20241019104255.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <button class="play-btn-pulse" id="playVideoBtn">
+                        <span class="play-triangle">▶</span>
+                    </button>
+                    <p class="video-hint">Add your video as "our-video.mp4"</p>
+                </div>
+            </div>
+            <div class="video-controls">
+                <button class="vc-btn" id="vcPlay">▶</button>
+                <span class="vc-time" id="videoTime">00:00 / 00:00</span>
+                <div class="vc-progress" id="vcProgress">
+                    <div class="vc-progress-fill" id="progressBar"></div>
+                </div>
+                <button class="vc-btn" id="vcMute">🔊</button>
+                <button class="vc-btn" id="vcFull">⛶</button>
+            </div>
+        </div>
+
+        <button class="btn-section" id="videoContinueBtn">Final Surprise 🎁</button>
+    </section>
+
+    <!-- ✉️ SECTION 6: LOVE LETTER -->
+    <section class="letter-section" id="letterSection">
+        <div class="section-header">
+            <span class="section-emoji">✉️</span>
+            <h2 class="section-title">A Letter From Taimoor</h2>
+            <p class="section-subtitle">Written with all my heart</p>
+            <div class="title-divider">💕</div>
+        </div>
+
+        <div class="envelope-wrap" id="envelopeWrap">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">💌</div>
+            </div>
+            <p class="envelope-hint">Click to open the letter</p>
+        </div>
+
+        <div class="letter-card" id="letterCard">
+            <div class="letter-border"></div>
+            <div class="letter-content">
+                <p class="letter-date" id="letterDate"></p>
+                <p class="letter-greeting">To the most amazing person in my life,</p>
+                <div class="letter-divider">💕</div>
+                <p class="letter-salute">My Dearest Iqra,</p>
+                <p class="letter-body typewriter" id="typewriter1">You make every day brighter just by being you. Thank you for your love, your kindness and for being my source of happiness.</p>
+                <p class="letter-body typewriter" id="typewriter2">I feel so lucky to have you in my life. Your love is the greatest gift I have ever received. Every moment with you feels like a beautiful dream I never want to wake up from.</p>
+                <p class="letter-body typewriter" id="typewriter3">On your special day, I just want you to know - you are my today, my tomorrow, and my forever. I promise to love you more with every breath I take.</p>
+                <p class="letter-highlight typewriter" id="typewriter4">Happy Birthday, my love! 🎂💖</p>
+                <div class="letter-divider">💕</div>
+                <p class="letter-closing">Forever & Always Yours,</p>
+                <p class="letter-sign">Taimoor 💕</p>
+                <div class="letter-stamp">💌</div>
+            </div>
+        </div>
+
+        <button class="btn-section" id="letterContinueBtn" style="display:none">One More Thing 🎁</button>
+    </section>
+
+    <!-- 🎁 SECTION 7: BIRTHDAY WISHES -->
+    <section class="wishes-section" id="wishesSection">
+        <div class="section-header">
+            <span class="section-emoji">🎁</span>
+            <h2 class="section-title">Birthday Wishes For You</h2>
+            <p class="section-subtitle">From the bottom of my heart</p>
+            <div class="title-divider">💕</div>
+        </div>
+
+        <div class="wishes-grid">
+            <div class="wish-card">
+                <div class="wish-icon">🌟</div>
+                <h3>Wish #1</h3>
+                <p>May all your dreams come true this year, because no one deserves happiness more than you.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">💪</div>
+                <h3>Wish #2</h3>
+                <p>May you always stay as strong and beautiful as you are right now.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">🌍</div>
+                <h3>Wish #3</h3>
+                <p>May the world give you everything you have ever wished for and more.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">💕</div>
+                <h3>Wish #4</h3>
+                <p>May our love grow stronger with every passing day, forever and always.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">😊</div>
+                <h3>Wish #5</h3>
+                <p>May you never stop smiling, because your smile is my favorite thing in this world.</p>
+            </div>
+            <div class="wish-card">
+                <div class="wish-icon">∞</div>
+                <h3>Wish #6</h3>
+                <p>May we have infinite birthdays to celebrate together, side by side.</p>
+            </div>
+        </div>
+
+        <button class="btn-section" id="wishesContinueBtn">Final Surprise 🎂</button>
+    </section>
+
+    <!-- 💗 SECTION 8: FINALE -->
+    <section class="cake-section" id="cakeSection">
+        <canvas class="fireworks-canvas" id="fireworksCanvas"></canvas>
+        
+        <div class="cake-content">
+            <h1 class="finale-happy">Happy Birthday,</h1>
+            <h1 class="finale-name">Iqra 💗</h1>
+
+            <!-- Glowing Love Heart (cake moved to 1st section) -->
+            <div class="finale-heart-wrap">
+                <div class="finale-heart-glow"></div>
+                <div class="finale-heart">💗</div>
+                <div class="finale-heart-ring ring1"></div>
+                <div class="finale-heart-ring ring2"></div>
+                <div class="finale-heart-ring ring3"></div>
+            </div>
+
+            <div class="finale-letter">
+                <p>Thank you for being my happiness,</p>
+                <p>my strength, and my best friend.</p>
+                <p>I am blessed to have you in my life.</p>
+                <p class="finale-sign">Forever yours, <strong>Taimoor</strong> 💕</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="#heroSection" class="footer-link">
+                    <span class="fl-icon">💗</span>
+                    <span>Our Story</span>
+                </a>
+                <a href="#reasonsSection" class="footer-link">
+                    <span class="fl-icon">💕</span>
+                    <span>Our Love</span>
+                </a>
+                <a href="#letterSection" class="footer-link">
+                    <span class="fl-icon">∞</span>
+                    <span>Forever Us</span>
+                </a>
+                <a href="#cakeSection" class="footer-link">
+                    <span class="fl-icon">💫</span>
+                    <span>Always</span>
+                </a>
+            </div>
+
+            <p class="footer-made">❤️ Made with Love by <strong>Taimoor</strong> for <strong>Iqra</strong> ❤️</p>
+        </div>
+    </section>
+
+    <!-- 🎵 SONG SELECTOR (Bottom) -->
+    <div class="song-dock" id="songDock">
+        <button class="song-dock-toggle" id="songDockToggle">🎵</button>
+        <div class="song-dock-panel" id="songDockPanel">
+            <p class="song-dock-title">🎶 Choose Background Song</p>
+            <button class="song-btn" data-song="song1.mp3" data-name="Tera Ban Jaunga">1️⃣ Tera Ban Jaunga</button>
+            <button class="song-btn" data-song="song2.mp3" data-name="Raataan Lambiyan">2️⃣ Raataan Lambiyan</button>
+            <button class="song-btn" data-song="song3.mp3" data-name="Dil Diyan Gallan">3️⃣ Dil Diyan Gallan</button>
+            <button class="song-btn" data-song="song4.mp3" data-name="Tum Se Hi">4️⃣ Tum Se Hi</button>
+            <button class="song-btn" data-song="song5.mp3" data-name="Kesariya">5️⃣ Kesariya</button>
+            <button class="song-btn" id="stopSongBtn">⏹️ Stop Music</button>
+            <p class="song-dock-hint">MP3 files ko website folder mein rakhein</p>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
